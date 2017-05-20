@@ -205,7 +205,7 @@ function main()
         delta_opt = getValue(delta[1])
         
         if( status == :Infeasible)
-           a_opt = 0
+           FxR_opt = 0
         end
 
         phi_opt = getValue(phi[2])
