@@ -1,0 +1,42 @@
+<launch>
+    <!-- SYSTEM MODEL -->
+    <!-- vehicle parameters -->
+    <param name="m" type="double" value="1.98" />
+    <param name="I_z" type="double" value="0.24" />
+    <param name="L_a" type="double" value="0.125" />
+    <param name="L_b" type="double" value="0.125" />
+    <!-- control parameters -->
+    <param name="input_gain" type="double" value="0.3" />
+    <param name="air_drag_coeff" type="double" value="0.01308" />
+    <param name="friction" type="double" value="0.01711" />
+    <!-- tire parameters -->
+    <param name="tire_model/B" type="double" value="10" />
+    <param name="tire_model/C" type="double" value="1.9" />
+    <param name="tire_model/mu" type="double" value="1" />
+
+
+    
+    
+    <!-- target -->
+    <node pkg="simulator" type="target.py" name="target" />
+    
+    <!-- obstacles -->
+    <node pkg="simulator" type="Ultrasound_xy_sim1.py" name="obstacle1" />
+ 
+    <!-- SIMULATOR1 -->
+    <node pkg="simulator" type="vehicle_simulator1.py" name="simulator1" />
+
+
+
+    <!-- Low Level Controller1 -->
+    <node pkg="simulator" type="low_level_controller1.py" name="PID1" />
+
+
+
+
+    <!-- Unity Communication -->
+    <node pkg="simulator" type="unity_server.py" name="unity1" />
+    
+    
+    
+</launch>
